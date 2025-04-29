@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: black;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* Adjust to avoid centering too much */
+            min-height: 100vh;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px; /* Reduce padding for smaller screens */
+            }
+        }
+        
+        .nav {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: rgb(65, 182, 241);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+        }
+        .nav h1 {
+            font-size: 22px;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        .nav-links li {
+            margin: 0 15px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 18px;
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .container {
+            background: rgb(113, 219, 234);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            transition: transform 0.3s;
+            margin-top: 80px;
+        }
+        .container:hover {
+            transform: scale(1.05);
+        }
+        h2 {
+            margin-bottom: 20px;
+            font-size: 26px;
+            font-weight: bold;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            background: rgba(7, 7, 7, 0.8);
+            color: #f6fafa;
+        }
+        textarea {
+            resize: none;
+            height: 120px;
+        }
+        button {
+            background: #ffcc00;
+            color: #fcfafa;
+            border: none;
+            padding: 12px 18px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 8px;
+            transition: background 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background: #ffdb4d;
+            transform: translateY(-2px);
+        }
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                width: 35%;
+                background: linear-gradient(135deg, #01fafa, #3c718e);
+                text-align: center;
+                padding: 10px 0;
+                border-radius: 12px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links li {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <h1>Manyanja road bike shop</h1>
+        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+    <div class="footer-section contact-form">
+        <h3>Contact Us</h3>
+        <form action="https://formspree.io/f/mqaqezzk" method="POST" id="contactForm">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+          <textarea name="message" placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      
+        <p id="formResponse" style="color: cyan; margin-top: 10px;"></p>
+      </div>
+      
+      <script>
+        const form = document.getElementById('contactForm');
+        const formResponse = document.getElementById('formResponse');
+      
+        form.addEventListener('submit', async function (e) {
+          e.preventDefault();
+          const formData = new FormData(form);
+          try {
+            const response = await fetch(form.action, {
+              method: form.method,
+              body: formData,
+              headers: {
+                'Accept': 'application/json'
+              }
+            });
+            if (response.ok) {
+              formResponse.textContent = "✅ Message sent successfully!";
+              formResponse.style.color = "lime"; // Green success color
+              form.reset();
+            } else {
+              formResponse.textContent = "⚠️ Failed to send message. Please try again.";
+              formResponse.style.color = "red"; // Error color
+            }
+          } catch (error) {
+            formResponse.textContent = "⚠️ Network error. Please try again.";
+            formResponse.style.color = "red"; // Error color
+          }
+        });
+      </script>
+      <style>
+        /* Slide animation */
+        @keyframes slideIn {
+          from {
+            transform: translateY(50px);
+            opacity: 0;
+          }
+          to {
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+        
+        .footer-section {
+          padding: 50px 20px;
+          background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d); /* Nice gradient */
+          color: #fff;
+          text-align: center;
+          animation: slideIn 1s ease forwards;
+          border-radius: 20px;
+          margin: 40px auto;
+          max-width: 700px;
+          box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .footer-section h3 {
+          font-size: 32px;
+          margin-bottom: 20px;
+          letter-spacing: 1px;
+        }
+        
+        .footer-section form {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 15px;
+          margin-top: 20px;
+        }
+        
+        .footer-section input,
+        .footer-section textarea {
+          width: 100%;
+          max-width: 500px;
+          padding: 14px 18px;
+          border: none;
+          border-radius: 10px;
+          font-size: 16px;
+          background: rgba(255, 255, 255, 0.2);
+          color: #fff;
+          backdrop-filter: blur(8px);
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+          transition: 0.3s;
+        }
+        
+        .footer-section input::placeholder,
+        .footer-section textarea::placeholder {
+          color: #e0e0e0;
+        }
+        
+        .footer-section input:focus,
+        .footer-section textarea:focus {
+          background: rgba(255, 255, 255, 0.3);
+          outline: none;
+        }
+        
+        .footer-section button {
+          background: #00ffc8;
+          color: #111;
+          border: none;
+          padding: 14px 24px;
+          border-radius: 12px;
+          font-size: 18px;
+          font-weight: bold;
+          cursor: pointer;
+          transition: background-color 0.3s, transform 0.3s;
+          margin-top: 10px;
+        }
+        
+        .footer-section button:hover {
+          background: #00e6b8;
+          transform: scale(1.05);
+        }
+        
+        #formResponse {
+          margin-top: 20px;
+          font-size: 18px;
+          color: #00ffc8;
+          animation: slideIn 1s ease forwards;
+        }
+        </style>
+        
+        
+      
+   <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.querySelector(".menu-toggle");
+        const navLinks = document.querySelector(".nav-links");
+    
+        menuToggle.addEventListener("click", function (event) {
+            event.stopPropagation(); // Prevent click from closing menu immediately
+            navLinks.classList.toggle("active");
+        });
+    
+        document.addEventListener("click", function (event) {
+            if (!navLinks.contains(event.target) && !menuToggle.contains(event.target)) {
+                navLinks.classList.remove("active");
+            }
+        });
+    });
+    
+   </script>
+</section>
+</body>
+</html>

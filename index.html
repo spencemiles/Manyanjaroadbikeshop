@@ -1,0 +1,1464 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manyanja Road Bike Shop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            overflow-x: hidden;
+        }
+      
+       /* Navbar Styling */
+       .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: #4bb7dc;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 30px;
+        z-index: 1000;
+    }
+
+    .logo {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        font-size: 18px;
+        margin-right: 3cm; /* Push links 3cm from right */
+    }
+
+    .nav-links li {
+        display: inline;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+    }
+
+    /* Mobile Menu Button */
+    .mobile-menu {
+        display: none;
+        font-size: 24px;
+        cursor: pointer;
+        position: absolute;
+        right: 1cm; /* Position 1cm from right */
+    }
+
+    /* Mobile Menu Styles */
+    .mobile-nav {
+        position: fixed;
+        top: 50px;
+        right: 10px;
+        width: 5cm;
+        height: 5cm;
+        background: rgba(0, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        z-index: 999;
+    }
+
+    .mobile-nav a {
+        color: black;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 10px;
+        display: block;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none; /* Hide desktop nav */
+        }
+
+        .mobile-menu {
+            display: block; /* Show three dots */
+        }
+    }
+
+        .hero-section {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding-left: 5%;
+        }
+
+        .hero-content {
+            color: #fff;
+            z-index: 1;
+            max-width: 600px;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.5s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url('path-to-your-video.mp4');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+ <!-- Navigation Bar -->
+ <nav class="navbar">
+    <div class="logo">Manyanja Road Bike Shop</div>
+    <ul class="nav-links">
+        <li><a href="contact.html">Contact us</a></li>
+        <li><a href="shop.html">Shop now</a></li>
+    </ul>
+    <!-- Mobile Menu Button -->
+    <div class="mobile-menu" onclick="toggleMenu()">&#8942;</div>
+</nav>
+
+<!-- Mobile Dropdown Menu -->
+<div class="mobile-nav" id="mobileNav">
+    <a href="shop.html" onclick="closeMenu()">Shop Now</a>
+    <a href="about.html" onclick="closeMenu()">About Us</a>
+    <a href="contact-us.html" onclick="closeMenu()">Contact Us</a>
+</div>
+
+<script>
+    function toggleMenu() {
+        var menu = document.getElementById("mobileNav");
+        if (menu.style.display === "flex") {
+            menu.style.display = "none";
+        } else {
+            menu.style.display = "flex";
+        }
+    }
+
+    function closeMenu() {
+        document.getElementById("mobileNav").style.display = "none";
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener("click", function (event) {
+        var menu = document.getElementById("mobileNav");
+        var menuButton = document.querySelector(".mobile-menu");
+
+        if (menu.style.display === "flex" && !menu.contains(event.target) && !menuButton.contains(event.target)) {
+            menu.style.display = "none";
+        }
+    });
+</script>    
+    
+    <section class="hero-section">
+      <video class="background-video" autoplay loop muted playsinline>
+        <source src="https://res.cloudinary.com/dekdxx6yx/video/upload/v1745938255/avdgya4scxyra9m7oy0f.mp4" type="video/mp4">
+      </video>
+      
+        <div class="overlay"></div>
+        <div class="hero-content">
+          <br>
+          <br>
+          <br>
+            <h1 class="hero-title"> welcome to Manyanja road bike shop</h1>
+            <p class="hero-subtitle">Discover Your Perfect Ride with Our Premium Collection of Bicycles/parts</p>
+            
+
+            <a href="shop.html" style="
+    background-color: white;
+    color: #28a745;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+  " onmouseover="this.style.backgroundColor='#f1f1f1'" onmouseout="this.style.backgroundColor='white'">
+    Shop Now
+  </a>                                                               <a href="repairs.html" class="cta-button" style="display:inline-block; margin-top:2rem; padding:12px 24px; background-color:#FF5722; color:white; text-decoration:none; border-radius:8px; font-size:1.2rem;">Book bike service</a>
+ 
+
+<!-- Search Bar -->
+
+</section>
+</section>
+
+<style>
+  @keyframes gradientWaves {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+</style>
+
+        </div>
+    </section>
+        <style>
+            .hero-content {
+                position: absolute;
+                left: 50px;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 2;
+                text-align: left; /* Changed from default center alignment */
+                max-width: 600px;
+            }
+        </style>
+    <section class="featured-products">
+        <style>
+            .featured-products {
+                position: absolute;
+                right: 50px;
+                top: 50%;
+                transform: translateY(-50%);
+                display: grid;
+                grid-template-columns: repeat(2, 150px);
+                gap: 20px;
+                z-index: 1;
+                
+            }
+
+            .product-card {
+                background: rgba(255, 255, 255, 0.9);
+                border-radius: 10px;
+                padding: 10px;
+                text-align: center;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+                animation: bounce 2s infinite;
+                transition: transform 0.3s ease;
+            }
+
+            .product-card:hover {
+                transform: scale(1.05);
+            }
+
+            .product-card:nth-child(1) { animation-delay: 0s; }
+            .product-card:nth-child(2) { animation-delay: 0.2s; }
+            .product-card:nth-child(3) { animation-delay: 0.4s; }
+            .product-card:nth-child(4) { animation-delay: 0.6s; }
+            .product-card:nth-child(5) { animation-delay: 0.8s; }
+            .product-card:nth-child(6) { animation-delay: 1.0s; }
+            .product-card:nth-child(7) { animation-delay: 1.2s; }
+            .product-card:nth-child(8) { animation-delay: 1.4s; }
+            .product-card:nth-child(9) { animation-delay: 1.6s; }
+            .product-card:nth-child(10) { animation-delay: 1.8s; }
+
+            .product-card img {
+                width: 100%;
+                height: 120px;
+                object-fit: cover;
+                border-radius: 8px;
+            }
+
+            .product-card h3 {
+                margin: 10px 0;
+                font-size: 0.9rem;
+                color: #333;
+            }
+
+            @keyframes bounce {
+                0%, 100% {
+                    transform: translateY(0);
+                }
+                50% {
+                    transform: translateY(-10px);
+                }
+            }
+
+            @media (max-width: 1200px) {
+                .featured-products {
+                    position: relative;
+                    right: auto;
+                    top: auto;
+                    transform: none;
+                    margin: 40px auto;
+                    max-width: 1200px;
+                    grid-template-columns: repeat(5, 1fr);
+                }
+            }
+
+            @media (max-width: 768px) {
+                .featured-products {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+        </style>
+
+        <a href="shop.html" class="product-card">
+            <img src="https://iili.io/3Gbieu1.md.jpg" alt="Road Bike ">
+            <h3>Road Bikes</h3>
+        </a>
+        <a href="shop.html" class="product-card">
+            <img src="https://iili.io/3GbiMCb.md.jpg" alt="mountain Bike">
+            <h3>Mountain Bikes</h3>
+        </a>
+        <a href="shop.html" class="product-card">
+            <img src="img/IMG_20240424_151528_460.jpg" alt="Hybrid Bike">
+            <h3>shocks</h3>
+        </a>
+        <a href="shop.html" class="product-card">
+            <img src="https://iili.io/3GbQ4Fj.md.jpg" alt="BMX Bike">
+            <h3>Gears</h3>
+        </a>
+        <a href="shop.html" class="product-card">
+            <img src="https://iili.io/3GbZ0Ux.md.jpg" alt="Bike Frames">
+            <h3>Bike pedals</h3>
+        </a>
+        <a href="shop.html" class="product-card">
+            <img src="https://iili.io/3GbiVGj.md.jpg" alt="Wheels">
+            <h3>Road bikes</h3>
+        </a>
+        <!-- <a href="shop.html" class="product-card">
+            <img src="img/IMG_20240425_093405_027~2.jpg" alt="Bike Parts">
+            <h3>Spare Parts</h3>
+        </a> -->
+        <!-- <a href="shop.html" class="product-card">
+            <img src="img/IMG_20240425_093405_027~2.jpg" alt="Accessories">
+            <h3>Accessories</h3>
+        </a>
+        <a href="shop.html" class="product-card">
+            <img src="img/IMG_20241129_172234_416.jpg" alt="Helmets">
+            <h3>Safety Gear</h3>
+        </a>
+        <a href="shop.html" class="product-card">
+            <img src="img/IMG_20241129_172234_416.jpg" alt="Tools"> -->
+            <!-- <h3>Tools & Maintenance</h3>
+        </a> -->
+    </section>
+
+    <section class="blog-section">
+        <style>
+            .blog-section {
+                padding: 80px 0;
+                background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            }
+
+            .blog-container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+
+            .blog-header {
+                text-align: center;
+                margin-bottom: 50px;
+            }
+
+            .blog-header h2 {
+                font-size: 2.5rem;
+                color: #2c3e50;
+                margin-bottom: 20px;
+                animation: fadeIn 1s ease;
+            }
+
+            .blog-header p {
+                font-size: 1.2rem;
+                color: #666;
+                max-width: 700px;
+                margin: 0 auto;
+            }
+
+            .blog-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 30px;
+                margin-top: 40px;
+            }
+
+            .blog-card {
+                background: #fff;
+                border-radius: 15px;
+                overflow: hidden;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                transition: transform 0.3s ease;
+                animation: slideUp 0.8s ease;
+            }
+
+            .blog-card:hover {
+                transform: translateY(-10px);
+            }
+
+            .blog-image {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+            }
+
+            .blog-content {
+                padding: 25px;
+            }
+
+            .blog-category {
+                color: #4CAF50;
+                font-size: 0.9rem;
+                font-weight: 600;
+                margin-bottom: 10px;
+                text-transform: uppercase;
+            }
+
+            .blog-title {
+                font-size: 1.4rem;
+                color: #2c3e50;
+                margin-bottom: 15px;
+                line-height: 1.4;
+            }
+
+            .blog-excerpt {
+                color: #666;
+                font-size: 1rem;
+                line-height: 1.6;
+                margin-bottom: 20px;
+            }
+
+            .blog-meta {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 0.9rem;
+                color: #888;
+            }
+
+            @keyframes slideUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(50px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .blog-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+            /* Footer */
+        footer {
+            background:  #060606;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin: 20px;
+        }
+
+        .footer-section h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: cyan;
+        }
+
+        /* Footer Links */
+        .footer-links a {
+            display: block;
+            color: #bbb;
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 8px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .footer-links a:hover {
+            color: cyan;
+        }
+
+        /* Contact Form */
+        .contact-form input, 
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 5px;
+            background: #222;
+            color: white;
+        }
+
+        .contact-form textarea {
+            height: 80px;
+            resize: none;
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 10px;
+            background: cyan;
+            color: #111;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: #00cccc;
+        }
+
+        /* Social Media Icons */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            color: cyan;
+            font-size: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.2);
+        }
+
+        /* Footer Bottom */
+        .footer-bottom {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #888;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+        }
+
+        </style>
+
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CyclePro - Your Ride, Your Freedom</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    .section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section h2 {
+      text-align: center;
+      color: #1a8f2e;
+      margin-bottom: 30px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #007b2f;
+    }
+
+    .cta-button {
+      display: block;
+      width: max-content;
+      margin: 30px auto;
+      padding: 15px 30px;
+      background-color: rgb(26, 143, 137);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #050505;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Benefits of Cycling Section -->
+  <section class="section" id="benefits"> 
+    <h2>Benefits of Cycling</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="https://cdn.shopify.com/s/files/1/0105/0918/9177/files/LSG_Blog_ExcerciseBikeVsOutdoorRiding_0824_01.jpg?v=1723091903" alt="Health & Fitness" style="width:100%; height:180px; object-fit:cover; border-radius:15px; margin-bottom:1rem;">
+        <h3>Health & Fitness</h3>
+        <p>Boosts cardiovascular health, builds muscle, and burns calories effectively.</p>
+      </div>
+      <div class="card">
+        <img src="https://www.amboseliparkkenya.com/wp-content/uploads/2022/09/Kenya_SouthEastChyuluHills_GreatPlainsOlDonyoBikeRiding3.jpg" alt="Eco Friendly" style="width:100%; height:180px; object-fit:cover; border-radius:15px; margin-bottom:1rem;">
+        <h3>Eco-Friendly</h3>
+        <p>Reduces carbon emissions and helps fight climate change with zero pollution.</p>
+      </div>
+      <div class="card">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhgyUHY6IUWpdPD6DJhxAV8bRccxUOJyJ6gH54XqUjeZbhoHI_dUbkEjcSNmAAvnKGWnxNxYJ3VSVSpYjL571rJEB3g20ZBg6I1qa4TxFjrpwnHRUDOrf7yV_cJiTSj5yu2xG9LIOMQzKg/s1600/ride+through+town.jpg" alt="Low Cost Travel" style="width:100%; height:180px; object-fit:cover; border-radius:15px; margin-bottom:1rem;">
+        <h3>Low Cost Travel</h3>
+        <p>No fuel needed! Maintenance is affordable, making cycling budget-friendly.</p>
+      </div>
+      <div class="card">
+        <img src="https://www.betterpoints.uk/uploads/5fdc2fdd-41b9-4a8b-a0cd-92c6e40d3f5d/original.png" alt="Mental Health Therapy" style="width:100%; height:180px; object-fit:cover; border-radius:15px; margin-bottom:1rem;">
+        <h3>Mental Health Therapy</h3>
+        <p>Relieves stress, improves mood, and enhances overall mental wellbeing.</p>
+      </div>
+      <div class="card">
+        <img src="https://www.kenyanews.go.ke/wp-content/uploads/2024/10/1-3.jpg" alt="A Hobby" style="width:100%; height:180px; object-fit:cover; border-radius:15px; margin-bottom:1rem;">
+        <h3>A Hobby</h3>
+        <p>Offers a fun and fulfilling activity, perfect for leisure and community engagement.</p>
+      </div>
+      <div class="card">
+        <img src="https://www.fbpcycles.co.ke/uploads/seo/event_image/image_67f27684397b3.jpeg" alt="Fitness" style="width:100%; height:180px; object-fit:cover; border-radius:15px; margin-bottom:1rem;">
+        <h3>Fitness</h3>
+        <p>Improves stamina, flexibility, and overall physical performance with regular rides.</p>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- Cycling Clubs Section -->
+  <section class="section" id="clubs">
+    <h2>Join a Cycling Club</h2>
+    <div class="cards">
+  
+      <div class="card">
+        <img src="https://scontent.fnbo17-1.fna.fbcdn.net/v/t39.30808-6/485371496_1069484001879857_7163251407660308548_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=kCsNeKENm7IQ7kNvwGynIwY&_nc_oc=AdlSAUenH9E2vtzLzV0s1RarydWXkJ5pt06aVaSzt_kR1KllQVb-9Vhw8no-_OeKJbQ&_nc_zt=23&_nc_ht=scontent.fnbo17-1.fna&_nc_gid=TLvYmKMVt4_Vdq-BjYzWfQ&oh=00_AfGOPl0mLTT40GbPJY4UGWEQqjrYAYMZQYpfZLdAvVL0iA&oe=6812BC18" alt="Urban Cyclers" style="width:100%; height:180px; object-fit:cover; border-radius:15px; margin-bottom:1rem;">
+        <h3>Critical Mass Nairobi</h3>
+        <p>Critical Mass Nairobi is a cycling movement dedicated to promoting sustainable mobility, fostering a cycling culture, and...</p>
+        <a href="https://www.criticalmassnairobi.org/?fbclid=IwY2xjawJ5sodleHRuA2FlbQIxMABicmlkETFKNzRpcGxTc2J6a2ZpaEJlAR5x7_1eKpN-8LFNPUKnozhdx4swqteyciyMU8V1obxv_AuAS19DkO4k2vuIMQ_aem_fyldmo3ZjkVOg5wAodhlwQ" target="_blank" style="display:inline-block; margin-top:10px; padding:8px 16px; background-color:#4CAF50; color:white; text-decoration:none; border-radius:5px;">See More</a>
+      </div>
+  
+      <div class="card">
+        <img src="https://scontent.fnbo17-1.fna.fbcdn.net/v/t39.30808-6/490704305_1234524808678466_3138274640069104609_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=pp96_coF7yAQ7kNvwHOJlOS&_nc_oc=AdnGlrwoVU8Mf2Td26BFyROLOAvr5NK1E0Yby8lw1gIcRBsXBV6V7zUNIcaqG0z2KCo&_nc_zt=23&_nc_ht=scontent.fnbo17-1.fna&_nc_gid=G-Kj8s3A9TDMpATW04Hc-g&oh=00_AfHwtDLbGVJSYMc5xzQDFoxBRpY3KiKD-ouxH_mZ6bpHdw&oe=6812BA7A" alt="Mountain Mavericks" style="width:100%; height:180px; object-fit:cover; border-radius:15px; margin-bottom:1rem;">
+        <h3>Dada Riders</h3>
+        <p>Women Cycling Activities...</p>
+        <a href="https://www.facebook.com/Dadarides/" target="_blank" style="display:inline-block; margin-top:10px; padding:8px 16px; background-color:#4CAF50; color:white; text-decoration:none; border-radius:5px;">See More</a>
+      </div>
+  
+      <div class="card">
+        <img src="https://scontent.fnbo17-1.fna.fbcdn.net/v/t39.30808-6/309453667_418466517081855_4414428560599753606_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=pqAxuv1l6r4Q7kNvwFok7JJ&_nc_oc=AdkVDrOizzHtw2iltvEr7DmG0Bh8Y2uykxsovXloiqbtdxyELvp1VTbRWucgA3-9JCI&_nc_zt=23&_nc_ht=scontent.fnbo17-1.fna&_nc_gid=LLiuVxPYAJaherVD3t0gXQ&oh=00_AfGltLOUrMVIg1-089TjgJSMhGBO5L2LOfA7xFtOxl3hMQ&oe=6812AAC6" alt="Road Racers" style="width:100%; height:180px; object-fit:cover; border-radius:15px; margin-bottom:1rem;">
+        <h3>RDX Express Riders</h3>
+        <p>rough Trains for speed and endurance with experienced MTB cyclists.</p>
+        <a href="https://www.facebook.com/profile.php?id=100067555291279" target="_blank" style="display:inline-block; margin-top:10px; padding:8px 16px; background-color:#4CAF50; color:white; text-decoration:none; border-radius:5px;">See More</a>
+      </div>
+  
+      <div class="card">
+        <img src="https://scontent.fnbo17-1.fna.fbcdn.net/v/t39.30808-6/291827172_492177549378408_2842323918488642754_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=-ue_eIAzBeEQ7kNvwHpx4ZW&_nc_oc=AdmJz0FTNHRF2oR67ze70lVj1skxnqprtxcxsgfcry8cho-S9jLEA6-_4EhqhBY7Lno&_nc_zt=23&_nc_ht=scontent.fnbo17-1.fna&_nc_gid=VIKXVriZcIlm-pGgRp4vfQ&oh=00_AfGg0GKwoINZRzqvVwMIf4kB1bhlcItDm0ZNCIocVYgHhw&oe=6812BBF9" alt="Family Riders" style="width:100%; height:180px; object-fit:cover; border-radius:15px; margin-bottom:1rem;">
+        <h3>Top team cycle and fitness</h3>
+        <p>Top Team Cycles and Fitness is a business aiming at inspiring freedom of the society by providing quality cycle and Fitness products within reach to all...</p>
+        <a href="https://www.facebook.com/topteamcycles" target="_blank" style="display:inline-block; margin-top:10px; padding:8px 16px; background-color:#4CAF50; color:white; text-decoration:none; border-radius:5px;">See More</a>
+      </div>
+  
+      <div class="card">
+        <img src="https://scontent.fnbo17-1.fna.fbcdn.net/v/t39.30808-6/305998184_590644869423098_6559172474824378010_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=Fm8UWfNrGQoQ7kNvwEq-R_z&_nc_oc=Adndz-TW4fzmMWR2ry3w-X2ClNsnF_to7nWg6n9sOx_onZk86xqHnU1Jkz6S8qdJ1YI&_nc_zt=23&_nc_ht=scontent.fnbo17-1.fna&_nc_gid=DmqgJ0AD4VCSh9hX2AH4sA&oh=00_AfHp9UcUJ2Rq0yo6fWplasxomd2jhuKwi7Epk6_1J7VcWQ&oe=6812BB40" alt="Eco Warriors" style="width:100%; height:180px; object-fit:cover; border-radius:15px; margin-bottom:1rem;">
+        <h3>DANAA BIKE TOURS </h3>
+        <p>A Bike Tours and Hire Company that believes in offering the best of fun on two wheels. Look no further when in need to enjoy cycling...</p>
+        <a href="https://www.facebook.com/danaabtours/" target="_blank" style="display:inline-block; margin-top:10px; padding:8px 16px; background-color:#4CAF50; color:white; text-decoration:none; border-radius:5px;">See More</a>
+      </div>
+  
+      <div class="card">
+        <img src="https://scontent.fnbo17-1.fna.fbcdn.net/v/t39.30808-6/348225361_803168567869457_1538174183700106697_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=SwRBlfBNg9gQ7kNvwFVBWe-&_nc_oc=AdlXcSmwK1IlK7dCfdVPux2Ekndvas_mtNjLxbu8CYKF_pCBOg_2M2wnw7AEZzLm9bg&_nc_zt=23&_nc_ht=scontent.fnbo17-1.fna&_nc_gid=3Tx1syftubN41xuPnCLTbQ&oh=00_AfGuFizEnmEmsnRreMXWN4LAfCXbc56nvD2k8xISFiKe0A&oe=6812B967" alt="Sunset Riders" style="width:100%; height:180px; object-fit:cover; border-radius:15px; margin-bottom:1rem;">
+        <h3>Miles and Hope </h3>
+        <p>Miles and Hope is an annual cycling event which brings together cyclists, cycling enthusiasts, philanthropists and well wishers to educate orphans...</p>
+        <a href="https://www.facebook.com/extramilersicc" target="_blank" style="display:inline-block; margin-top:10px; padding:8px 16px; background-color:#4CAF50; color:white; text-decoration:none; border-radius:5px;">See More</a>
+      </div>
+  
+      <div class="card">
+        <img src="https://scontent.fnbo17-1.fna.fbcdn.net/v/t39.30808-6/300249934_443214374498699_6188302307994209103_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=1eVUXotByKYQ7kNvwGBe8gM&_nc_oc=AdleB7EfERcVWzBQ3kt68NECyHMR6dTte5NKNMK2xzmtLnSvxxHQjdAyUDnGEp_BGak&_nc_zt=23&_nc_ht=scontent.fnbo17-1.fna&_nc_gid=-MzCXKGZG-sWA5r8OJBYRA&oh=00_AfH_xkV9qnWaWShWQP0LO5Mj6liX3IKG9A3fG347BfWHsQ&oe=68129306" alt="Adventure Cyclists" style="width:100%; height:180px; object-fit:cover; border-radius:15px; margin-bottom:1rem;">
+        <h3>Kitengela Cycling Club </h3>
+        <p>We aim to bring cycling closer to you.
+          To build up your fitness and health. Better things are coming.
+          We are not limited....</p>
+        <a href="https://www.facebook.com/KitengelaCyclingClub#" target="_blank" style="display:inline-block; margin-top:10px; padding:8px 16px; background-color:#4CAF50; color:white; text-decoration:none; border-radius:5px;">See More</a>
+      </div>
+  
+      <div class="card">
+        <img src="https://scontent.fnbo17-1.fna.fbcdn.net/v/t39.30808-6/380658044_6733151753408211_3448225515240712523_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=2285d6&_nc_ohc=qpU_xlYRAlQQ7kNvwHdEK8U&_nc_oc=Admz_dCMykAv6zG52ixzWYLIjBemyj0UZvb4t-SjCcV_xyi8fD9L9EWXyEeHO5wTjf4&_nc_zt=23&_nc_ht=scontent.fnbo17-1.fna&_nc_gid=TkMbN-RwcyZo-oLyVaD_Jg&oh=00_AfF-wWRCjuT3YqJ9Oku3xvWRQhfo4UwcyCD0OypPwDKiBw&oe=6812B016" alt="Fitness Pedal Club" style="width:100%; height:180px; object-fit:cover; border-radius:15px; margin-bottom:1rem;">
+        <h3>The Weekend Cycle - Nairobi</h3>
+        <p>The Sunday Cycle - Nairobi, is a group bike ride that happens every Sunday. All are welcome and the emphasis is on having fun and growing a community of cyclists, while pedaling. Members only ..</p>
+        <a href="https://www.facebook.com/groups/483135141784163/" target="_blank" style="display:inline-block; margin-top:10px; padding:8px 16px; background-color:#4CAF50; color:white; text-decoration:none; border-radius:5px;">See More</a>
+      </div>
+  
+      <div class="card">
+        <img src="https://scontent.fnbo17-1.fna.fbcdn.net/v/t1.6435-9/103081218_4058530907522210_7889964130017401851_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=2285d6&_nc_ohc=DVkqeeHyD24Q7kNvwEcFvho&_nc_oc=AdlM41_KE9vhJuOdAeSq0eR-RHhAW7DSyn-oWFak0Px2nNfu77iYHyNDaVCh5iLkwho&_nc_zt=23&_nc_ht=scontent.fnbo17-1.fna&_nc_gid=fYU_cQPuxUB6X8SaRmCj-A&oh=00_AfEmKyFXLeJrXdJtKhfaVV9kzFRLyqMnz21N5-VpZhK0xA&oe=68346234" alt="Ladies Ride" style="width:100%; height:180px; object-fit:cover; border-radius:15px; margin-bottom:1rem;">
+        <h3>Kasarani Cycling Community</h3>
+        <p>Welcome to Kasarani Cycling community, this group is for all the people in Kasarani who are enthusiastic about bikes and cycling, the young, the…</p>
+        <a href="https://www.facebook.com/share/g/1C1k1afeNz/" target="_blank" style="display:inline-block; margin-top:10px; padding:8px 16px; background-color:#4CAF50; color:white; text-decoration:none; border-radius:5px;">See More</a>
+      </div>
+  
+      <div class="card">
+        <img src="https://ugc.production.linktr.ee/SB60PTOzRAtv413sM6eQ_ia0Lb2urZ2UO2aTO?io=true&size=avatar-v3_0" alt="Long Distance Riders" style="width:100%; height:180px; object-fit:cover; border-radius:15px; margin-bottom:1rem;">
+        <h3>CYCLOPEDIA 254</h3>
+        <p>Bringing the cycling community together ❤️🚴....</p>
+        <a href="https://linktr.ee/cyclopedia254" target="_blank" style="display:inline-block; margin-top:10px; padding:8px 16px; background-color:#4CAF50; color:white; text-decoration:none; border-radius:5px;">See More</a>
+      </div>
+  
+    </div>
+  </section>
+<!-- Testimonials Section -->
+<div class="testimonial-section">
+  <h2>What Our Cyclists Say</h2>
+
+  <div class="testimonial-container" id="testimonialContainer">
+    <div class="testimonial">
+      <p>"This shop is a cyclist's paradise. Got my custom road bike here and it's a dream to ride!"</p>
+      <h4>- Jonathan S., Professional Racer</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"Fast service, authentic parts, and expert advice. I wouldn't shop anywhere else."</p>
+      <h4>- Michelle L., Triathlon Athlete</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"Exceptional customer service. They helped me build my dream gravel bike from scratch."</p>
+      <h4>- Chris D., Adventure Cyclist</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"Found rare carbon fiber components at unbeatable prices. Truly top-tier!"</p>
+      <h4>- Eric M., Elite Rider</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"Their team knows cycling like no one else. My go-to shop for all my race needs."</p>
+      <h4>- Olivia F., Pro Cyclist</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"Incredible range of spare parts and very knowledgeable staff. Love shopping here."</p>
+      <h4>- Peter G., Cyclocross Champion</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"Got fitted for a new triathlon bike. The accuracy and comfort are next level."</p>
+      <h4>- Laura B., Ironman Competitor</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"Never seen better quality in both bikes and service. A must-visit for serious cyclists."</p>
+      <h4>- Noah W., Road Cyclist</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"Excellent after-sales support. They even tuned my gears for free after a month!"</p>
+      <h4>- Isabella V., Tour Rider</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"From frames to accessories, everything here screams quality and passion for cycling."</p>
+      <h4>- Lucas P., Sprint Specialist</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"Staff are genuine cyclists who understand what performance truly means."</p>
+      <h4>- Mia R., Competitive Biker</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"Every time I visit, they have something new and amazing for high-performance riding."</p>
+      <h4>- Jackson T., Endurance Cyclist</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"They helped me upgrade my groupset — my bike feels brand new again!"</p>
+      <h4>- Ava C., Marathon Cyclist</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"Brilliant atmosphere and world-class selection of bikes. 5-star experience!"</p>
+      <h4>- Ethan N., MTB Enthusiast</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"Purchased a spare set of race wheels. Top brands, great prices."</p>
+      <h4>- Emma F., Sprint Cyclist</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"They treat you like family here. Bought three bikes over the years and counting."</p>
+      <h4>- Sebastian K., Crit Racer</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"You can tell they care about every customer. Got amazing advice for my first century ride."</p>
+      <h4>- Chloe M., Long Distance Cyclist</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"Professional bike fitting changed everything for my performance. Can't thank them enough."</p>
+      <h4>- Benjamin D., Time Trial Specialist</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"Top-quality helmets, shoes, and apparel — all under one roof."</p>
+      <h4>- Sofia J., City Commuter</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"Bought my first carbon frame bike here. Light, fast, and reliable."</p>
+      <h4>- Logan A., Rookie Racer</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"They make sure you leave with exactly what you need, not just what’s expensive."</p>
+      <h4>- Grace P., MTB Racer</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"I trust them for all my upgrades — from saddles to drivetrains."</p>
+      <h4>- Elijah B., Race Mechanic</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"Got my high-performance SPD pedals here. Best cycling investment I've made."</p>
+      <h4>- Lily H., Touring Cyclist</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"They gave me tips for my first criterium race — true pros at heart."</p>
+      <h4>- Daniel O., Criterium Racer</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"High-end brands, top-notch service. This is THE shop for serious riders."</p>
+      <h4>- Aria V., Gravel Rider</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"If you're into high-performance bikes, this place is pure heaven."</p>
+      <h4>- Matthew L., Track Racer</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"Best maintenance packages in town — my bike rides smoother after every tune-up."</p>
+      <h4>- Victoria S., Marathon Rider</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"They helped me source hard-to-find gear ratios for my time trial bike."</p>
+      <h4>- Joseph R., TT Cyclist</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"Got a superb e-bike for long-distance tours. Love the range and power!"</p>
+      <h4>- Lily W., Enduro Cyclist</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"Serious cyclists know this is the shop to trust. Outstanding reputation."</p>
+      <h4>- David E., Elite Road Rider</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"Friendly, knowledgeable, and passionate about every detail of cycling."</p>
+      <h4>- Scarlett Z., Trail Rider</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"My new aero bike has turned heads and improved my times dramatically!"</p>
+      <h4>- Carter B., Road Racer</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"They tuned my bike to perfection before my big race. Felt amazing!"</p>
+      <h4>- Audrey S., Race Champion</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"This store sets the standard for service and selection in the cycling world."</p>
+      <h4>- Samuel Y., Competitive Cyclist</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"Even after moving to another city, I still order all my parts from them."</p>
+      <h4>- Mila G., Distance Rider</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"Each visit feels like meeting old friends who love bikes as much as you do."</p>
+      <h4>- Henry T., Amateur Cyclist</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"I can trust their recommendations completely. Always spot-on."</p>
+      <h4>- Zoe K., Sprint Specialist</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"They helped me customize my dream mountain bike. Couldn't be happier."</p>
+      <h4>- Julian F., Enduro Racer</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"Pure passion for cycling shines through everything they do."</p>
+      <h4>- Bella M., City Cyclist</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"When quality matters, this is the only bike shop that counts."</p>
+      <h4>- Jack W., Adventure Cyclist</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"Purchased new disc brakes here — best upgrade for serious stopping power."</p>
+      <h4>- Layla D., Cross Country Rider</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"Staff gave me priceless advice about training and recovery."</p>
+      <h4>- Gabriel N., Road Warrior</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"Feels like a boutique cycling club more than just a store."</p>
+      <h4>- Ellie A., Fitness Cyclist</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"Love how they stock both the classics and the latest tech."</p>
+      <h4>- Grayson P., Retro Bike Enthusiast</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"You feel their passion for the sport the moment you walk in."</p>
+      <h4>- Natalie C., Racing Cyclist</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"Bought my turbo trainer here — great advice and competitive pricing."</p>
+      <h4>- Dylan S., Winter Trainer</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"This shop has elevated my cycling game beyond what I imagined."</p>
+      <h4>- Nora B., Track Sprinter</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"Finally found a bike shop that understands racing priorities."</p>
+      <h4>- Nathan M., Competitive Racer</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"Expert help fitting my time trial bike. Worth every penny!"</p>
+      <h4>- Stella R., TT Racer</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"Hands down, the most supportive team I've ever met in cycling."</p>
+      <h4>- Caleb H., Mountain Climber</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"Every purchase here feels like a real upgrade."</p>
+      <h4>- Audrey V., Speed Cyclist</h4>
+    </div>
+    
+    <div class="testimonial">
+      <p>"They know exactly what riders need for every level of competition."</p>
+      <h4>- Leo T., Weekend Warrior</h4>
+    </div>
+    
+  </div>
+
+  <div class="testimonial-buttons">
+    <button onclick="prevTestimonial()">❮</button>
+    <button onclick="nextTestimonial()">❯</button>
+  </div>
+</div>
+
+<!-- CSS Styling -->
+<style>
+.testimonial-section {
+  background: linear-gradient(to right, #e0f7fa, #ffffff);
+  padding: 50px 20px;
+  text-align: center;
+  border-radius: 20px;
+  margin: 50px auto;
+  width: 90%;
+  max-width: 800px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.testimonial-section h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.testimonial-container {
+  position: relative;
+  overflow: hidden;
+  min-height: 180px;
+}
+
+.testimonial {
+  display: none;
+  font-size: 1.2em;
+  color: #555;
+  padding: 20px;
+  transition: all 0.5s ease;
+}
+
+.testimonial.active {
+  display: block;
+}
+
+.testimonial h4 {
+  margin-top: 15px;
+  color: #111;
+  font-weight: bold;
+}
+
+.testimonial-buttons {
+  margin-top: 20px;
+}
+
+.testimonial-buttons button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  font-size: 1.5em;
+  margin: 0 10px;
+  padding: 10px 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.testimonial-buttons button:hover {
+  background-color: #45a049;
+}
+</style>
+
+<!-- JavaScript to Handle Testimonial Switching -->
+<script>
+let currentTestimonial = 0;
+const testimonials = document.querySelectorAll('.testimonial');
+
+function showTestimonial(index) {
+  testimonials.forEach((t, i) => {
+    t.classList.toggle('active', i === index);
+  });
+}
+
+function nextTestimonial() {
+  currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+  showTestimonial(currentTestimonial);
+}
+
+function prevTestimonial() {
+  currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+  showTestimonial(currentTestimonial);
+}
+</script>
+
+  
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Visit Us</title>
+  <style>
+    .contact-section {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px;
+      background: #f4f4f4;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .contact-section h2 {
+      color: #28a745;
+      margin-bottom: 20px;
+    }
+
+    .map-container {
+      width: 100%;
+      height: 300px;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .contact-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .contact-buttons a {
+      display: inline-block;
+      padding: 12px 20px;
+      font-size: 1rem;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: transform 0.2s ease;
+    }
+
+    .call-btn {
+      background-color: #007bff;
+    }
+
+    .whatsapp-btn {
+      background-color: #25D366;
+    }
+
+    .contact-buttons a:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <section class="contact-section">
+    <h2>Find Us at Manyanja Rd, Nairobi</h2>
+
+    <div class="map-container">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.802885286108!2d36.89954387496525!3d-1.2800487356263097!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f13e301e7a2ef%3A0xf1561d760f1389a1!2sManyanja%20Rd%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1713873062905!5m2!1sen!2ske"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+    <div class="contact-buttons">
+      <a href="tel:+254700123456" class="call-btn">📞 Call Us</a>
+      <a href="https://wa.me/254700123456" class="whatsapp-btn" target="_blank">💬 WhatsApp</a>
+    </div>
+  </section>
+  <section class="event-section">
+    <div class="event-container">
+      <div class="event-card">
+        <p><strong>📅 Event Date:</strong> 24<sup>th</sup> April 2025</p>
+        <p><strong>🕗 Time:</strong> 8:00 AM</p>
+        <p><strong>📍 Venue:</strong> Limuru Bus Station</p>
+        <p><strong>🛣️ Distance:</strong> 52 KM</p>
+        <p><strong>🕒 Duration:</strong> 3 hrs</p>
+        <p><strong>💰 Cost:</strong> 2000 Ksh per individual</p>
+      </div>
+    </div>
+  </section>
+  
+  <style>
+    .event-section {
+      background: linear-gradient(to right, #191970, #1e3c72); /* Midnight Blue Gradient */
+      padding: 50px 20px;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+    }
+  
+    .event-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  
+    .event-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+  
+    .event-card:hover {
+      transform: translateY(-5px);
+    }
+  
+    .event-card p {
+      font-size: 1.1rem;
+      margin: 10px 0;
+      line-height: 1.5;
+    }
+  
+    @media (max-width: 600px) {
+      .event-card {
+        padding: 20px;
+      }
+  
+      .event-card p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+  
+</body>
+</html>
+
+
+  <script>
+    // Optional interactivity: Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const section = document.querySelector(this.getAttribute('href'));
+        section?.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
+
+
+        <script>
+            // Function to fetch and update blog content
+            async function updateBlogContent() {
+                try {
+                    // Here you would typically fetch data from your API or RSS feeds
+                    // For demonstration, we'll use placeholder content
+                    const blogFeed = document.getElementById('dynamic-blog-feed');
+                    
+                    // Update content periodically
+                    setInterval(() => {
+                        // Fetch new content and update the blog cards
+                        // This is where you'd implement the actual content fetching logic
+                    }, 3600000); // Update every hour
+                } catch (error) {
+                    console.error('Error updating blog content:', error);
+                }
+            }
+
+            // Initialize blog updates
+            document.addEventListener('DOMContentLoaded', updateBlogContent);
+        </script>
+    </section>
+     <!-- Footer Section -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>About Us</h3>
+            <p>Discover Your Perfect Ride with Our Premium Collection of Bicycles</p>
+        </div>
+
+        <div class="footer-section footer-links">
+            <h3>Quick Links</h3>
+            <a href="index.html">Home</a>
+            <a href="about.html">about us</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="footer-section contact-form">
+            <h3>Contact Us</h3>
+            <form action="https://formspree.io/f/your-form-id" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+              </form>
+              
+            <p id="formResponse" style="color: cyan; margin-top: 10px;"></p>
+        </div>
+
+        <!-- Social Media -->
+          <!-- Social Media -->
+         <!-- Social Media -->
+         <div class="social-icons" style="margin: 10px 0; display: flex; justify-content: center; gap: 15px;">
+            <a href="https://facebook.com" target="_blank" style="text-decoration: none; color: cyan; font-size: 30px;">
+                <i class="fa-brands fa-facebook" style="transition: 0.3s ease-in-out;" 
+                   onmouseover="this.style.textShadow='0 0 15px cyan'; this.style.transform='scale(1.3)';" 
+                   onmouseout="this.style.textShadow='none'; this.style.transform='scale(1)';"></i>
+            </a>
+            <a href="https://twitter.com" target="_blank" style="text-decoration: none; color: cyan; font-size: 30px;">
+                <i class="fa-brands fa-x-twitter" style="transition: 0.3s ease-in-out;" 
+                   onmouseover="this.style.textShadow='0 0 15px cyan'; this.style.transform='scale(1.3)';" 
+                   onmouseout="this.style.textShadow='none'; this.style.transform='scale(1)';"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" style="text-decoration: none; color: cyan; font-size: 30px;">
+                <i class="fa-brands fa-instagram" style="transition: 0.3s ease-in-out;" 
+                   onmouseover="this.style.textShadow='0 0 15px cyan'; this.style.transform='scale(1.3)';" 
+                   onmouseout="this.style.textShadow='none'; this.style.transform='scale(1)';"></i>
+            </a>
+            <a href="https://wa.me/your-number" target="_blank" style="text-decoration: none; color: cyan; font-size: 30px;">
+                <i class="fa-brands fa-whatsapp" style="transition: 0.3s ease-in-out;" 
+                   onmouseover="this.style.textShadow='0 0 15px cyan'; this.style.transform='scale(1.3)';" 
+                   onmouseout="this.style.textShadow='none'; this.style.transform='scale(1)';"></i>
+            </a>
+            <a href="https://t.me/your-username" target="_blank" style="text-decoration: none; color: cyan; font-size: 30px;">
+                <i class="fa-brands fa-telegram" style="transition: 0.3s ease-in-out;" 
+                   onmouseover="this.style.textShadow='0 0 15px cyan'; this.style.transform='scale(1.3)';" 
+                   onmouseout="this.style.textShadow='none'; this.style.transform='scale(1)';"></i>
+            </a>
+            <a href="https://www.tiktok.com" target="_blank" style="text-decoration: none; color: cyan; font-size: 30px;">
+                <i class="fa-brands fa-tiktok" style="transition: 0.3s ease-in-out;" 
+                   onmouseover="this.style.textShadow='0 0 15px cyan'; this.style.transform='scale(1.3)';" 
+                   onmouseout="this.style.textShadow='none'; this.style.transform='scale(1)';"></i>
+            </a>
+           
+        </div>
+    </div>
+    <p class="footer-bottom">&copy; Manyanja road bike shop. All rights reserved.</p>
+</footer>
+
+<!-- JavaScript -->
+<script>
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let message = document.getElementById("message").value;
+
+        if (name === "" || email === "" || message === "") {
+            document.getElementById("formResponse").innerText = "Please fill in all fields.";
+        } else {
+            document.getElementById("formResponse").innerText = "Thank you for reaching out";
+            document.getElementById("contactForm").reset();
+        }
+    });
+</script>
+
+
+
+<script>
+    let slides = document.querySelectorAll(".slide");
+    let currentIndex = 0;
+
+    function changeSlide() {
+        slides[currentIndex].classList.remove("active");
+        currentIndex = (currentIndex + 1) % slides.length;
+        slides[currentIndex].classList.add("active");
+    }
+
+    setInterval(changeSlide, 5000);
+</script>
+    
+    <script>
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            alert("Thank you for your message! We will get back to you soon.");
+        });
+    </script>
+</body>
+</html>
+
+</body>
+</html>
